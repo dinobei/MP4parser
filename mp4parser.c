@@ -11,8 +11,13 @@ int main(int argc, char* argv[])
 
    //////////////ÐÞ¸Äºó
    unsigned long filesize = 0;
+   if(argc < 2){
+	   printf("usage: %s mp4file\n",argv[0]);
+	   exit(0);
+   }
+   printf("check mp4 file ->%s\n",argv[1]);
    BUFFER_t *buffer = NULL;
-   FILE *file = fopen("Channel1_Audio1_MPU_0000.mp4","rb");
+   FILE *file = fopen(argv[1],"rb");
    fseek(file,0L,SEEK_END);
    filesize = ftell(file);
    fseek(file,0L,SEEK_SET); 
